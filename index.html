@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Amulya Goli Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Amulya's Portfolio</title>
   <meta name="description" content="A luxurious, highly‑animated single‑file portfolio with smooth flips, elegant background motion, and parallax effects." />
-
+  <meta name="theme-color" content="#0E1421" />
+  <meta property="og:title" content="Amulya's Portfolio" />
+  <meta property="og:description" content="Medical Coding Specialist & Revenue Cycle Analyst — luxe, animated single‑file portfolio." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs/%3E%3Ccircle cx='32' cy='32' r='32' fill='%23EAC46B'/%3E%3Cpath d='M14 33h12V21h12v12h12v12H38v12H26V45H14z' fill='%230E1421'/%3E%3C/svg%3E">
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,8 +97,42 @@
       background:linear-gradient(180deg,rgba(12,16,27,.72),rgba(12,16,27,.38) 60%,transparent);}
     .nav{max-width:1200px; margin:0 auto; display:flex; gap:12px; align-items:center; padding:14px 18px}
     .brand{display:flex; align-items:center; gap:10px; font-weight:600}
-    .brand .logo{width:34px; height:34px; border-radius:50%; background:radial-gradient(circle at 30% 30%, var(--gold), #9F6F2A 60%, #65461A 100%);
-      box-shadow:var(--ring)}
+    .brand .logo{
+      width:34px; height:34px; border-radius:50%;
+      background: none;
+      box-shadow:0 0 0 1px rgba(209, 107, 234, 0.658), 0 8px 28px rgba(234, 3, 3, 0.811);
+      box-shadow:var(--ring);
+      position:relative;
+      overflow:hidden;
+      animation:logoPulse 2.8s ease-in-out infinite;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .brand .logo::before {
+      content:"";
+      display:block;
+      width:26px; height:26px;
+      background: none;
+      mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 29s-13-8.35-13-16.5A7.5 7.5 0 0 1 16 7.5a7.5 7.5 0 0 1 13 5C29 20.65 16 29 16 29z" fill="black"/></svg>');
+      -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 29s-13-8.35-13-16.5A7.5 7.5 0 0 1 16 7.5a7.5 7.5 0 0 1 13 5C29 20.65 16 29 16 29z" fill="black"/></svg>');
+      mask-size: cover;
+      -webkit-mask-size: cover;
+      background: radial-gradient(circle at 30% 30%, var(--gold), #e706c591 60%, #981257b1 100%);
+    }
+    .brand .logo::after {
+      content:"";
+      position:absolute; inset:0;
+      background:conic-gradient(from 0deg, rgba(249, 6, 233, 0.405), rgba(238, 10, 230, 0.964), rgba(68, 3, 72, 0.948) 50%);
+      mix-blend-mode:overlay;
+      pointer-events:none;
+      animation:logoSpin 6s linear infinite;
+    }
+    @keyframes logoPulse {
+      0%,100% { box-shadow:0 0 0 0 rgba(168, 3, 166, 0.925), 0 8px 28px rgba(201, 4, 184, 0.859);}
+      50% { box-shadow:0 0 0 8px rgba(212, 78, 229, 0.896), 0 14px 36px rgba(233, 62, 196, 0.912);}
+    }
+    @keyframes logoSpin {
+      to { transform:rotate(360deg);}
+    }
     .nav a{color:var(--ink); text-decoration:none; font-weight:500; opacity:.86}
     .spacer{flex:1}
     .btn{display:inline-flex; align-items:center; gap:10px; padding:10px 16px; border-radius:999px; cursor:pointer;
@@ -106,9 +144,12 @@
 
     /* ===== Hero ===== */
     .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center; padding:72px 0}
-    .tag{display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px; font-size:.88rem; letter-spacing:.3px;
+    .tag{
+      display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px; font-size:.88rem; letter-spacing:.3px;
       background:linear-gradient(180deg, rgba(247,195,214,.15), rgba(255,255,255,.04));
-      border:1px solid rgba(247,195,214,.32); box-shadow:0 8px 30px rgba(247,195,214,.25)}
+      border:1px solid rgba(247,195,214,.32); box-shadow:0 8px 30px rgba(247,195,214,.25);
+      cursor:pointer; border:none; background:none; font:inherit;
+    }
     .title{font-size:clamp(2.2rem, 5vw, 4rem); line-height:1.08; margin:16px 0 10px}
     .subtitle{font-size:clamp(1rem, 2.4vw, 1.25rem); color:var(--muted)}
 
@@ -216,8 +257,8 @@
     .t-item::before{
       content:"";
       position:absolute;
-      left:-2px;
-      top:0;
+      left: -25px;
+      top: 25px;
       width:14px;
       height:14px;
       border-radius:50%;
@@ -226,7 +267,7 @@
       
     }
     .t-item h3 {
-      margin-left:22px; /* gap between dot and heading */
+      margin-left: 5px; /* gap between dot and heading */
     }
 
     /* ===== Footer ===== */
@@ -276,25 +317,25 @@
         <path d="M50 5 L65 25 L95 25 L80 50 L95 75 L65 75 L50 95 L35 75 L5 75 L20 50 L5 25 L35 25 Z"/>
       </svg>
       <!-- medical cross -->
-      <svg class="cross" viewBox="0 0 100 100" fill="none" stroke-width="2">
+      <svg class="cross" viewBox="0 0 100 100" fill="none" stroke-width="2" aria-hidden="true">
         <path d="M40 10 H60 V40 H90 V60 H60 V90 H40 V60 H10 V40 H40 Z"/>
       </svg>
     </div>
   </div>
 
   <!-- ===== Nav ===== -->
-  <header>
-    <nav class="nav">
+  <header role="banner">
+    <nav class="nav" aria-label="Primary">
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
-        <span>Amulya</span>
+        <span>Amulya Goli</span>
       </div>
-      <div class="spacer"></div>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a class="btn magnet" href="#contact"><span class="hover"></span>Contact</a>
+      <div class="spacer" aria-hidden="true"></div>
+      <a class="btn magnet" href="#about"><span class="hover" aria-hidden="true"></span>About</a>
+      <a class="btn magnet" href="#projects"><span class="hover" aria-hidden="true"></span>Projects</a>
+      <a class="btn magnet" href="#skills"><span class="hover" aria-hidden="true"></span>Skills</a>
+      <a class="btn magnet" href="#experience"><span class="hover" aria-hidden="true"></span>Experience</a>
+      <a class="btn magnet" href="#contact" ><span class="hover" aria-hidden="true"></span>Contact</a>
     </nav>
   </header>
 
@@ -302,7 +343,52 @@
     <!-- ===== Hero ===== -->
     <section class="hero">
       <div>
-        <span class="tag">✨ Amulya Portfolio</span>
+        <button class="tag" id="sparkle-btn" type="button" style="background:linear-gradient(90deg, var(--gold), var(--rose), var(--violet)); color:#222222;">
+         <span style="color:var(--pink)">Welcome ✨</span>
+        </button>
+        <script>
+          // Multi-color sparkle blast effect on button hover (spread all over page)
+          const sparkleBtn = document.getElementById('sparkle-btn');
+          sparkleBtn.addEventListener('mouseenter', () => {
+            const colors = [
+              'rgba(234,196,107,1)', // gold
+              'rgba(247,195,214,1)', // rose
+              'rgba(156,124,255,1)', // violet
+              'rgba(143,232,224,1)', // aqua
+              'rgba(212,111,166,1)', // magenta
+              'rgba(255,255,255,1)'  // white
+            ];
+            const pageW = window.innerWidth;
+            const pageH = window.innerHeight;
+            for(let i=0; i<40; i++){
+              const dot = document.createElement('span');
+              // Random position anywhere on the page
+              const x = Math.random() * pageW;
+              const y = Math.random() * pageH * 0.7; // avoid bottom edge
+              const color = colors[Math.floor(Math.random() * colors.length)];
+              dot.style.cssText = `
+          position:fixed;
+          left:${x}px; top:${y}px;
+          width:${10 + Math.random()*10}px; height:${10 + Math.random()*10}px; border-radius:50%;
+          pointer-events:none;
+          background:radial-gradient(circle at 30% 30%, ${color}, transparent 70%);
+          filter:blur(.5px); opacity:1;
+          z-index:9999;
+          box-shadow:0 0 24px ${color}, 0 0 8px ${color};
+          transition:top 1.1s cubic-bezier(.2,.8,.2,1), left 1.1s cubic-bezier(.2,.8,.2,1), opacity .9s cubic-bezier(.2,.8,.2,1), transform .9s cubic-bezier(.2,.8,.2,1);
+              `;
+              document.body.appendChild(dot);
+              setTimeout(()=>{
+          // Animate to a new random position and fade out
+          dot.style.top = (Math.random() * pageH) + 'px';
+          dot.style.left = (Math.random() * pageW) + 'px';
+          dot.style.opacity = 0.1;
+          dot.style.transform = 'scale(1.4)';
+              }, 50);
+              setTimeout(()=>{dot.remove()}, 2000);
+            }
+          });
+        </script>
         <h1 class="title">Hello, I'm <span style="color:var(--gold)">Amulya</span> — Medical Coder & Claims  Specialist</h1>
         <p class="subtitle">Transforming complex clinical documentation into precise, compliant claims while innovating data-driven solutions that streamline the revenue cycle process.</p>
         <div class="cta">
@@ -318,7 +404,7 @@
     <!-- ===== About ===== -->
     <section id="about" class="reveal card">
       <h2>About Me</h2>
-      <p style="color:var(--muted);max-width:70ch">As a <strong>CPC‑certified</strong> healthcare professional, I specialize in optimizing revenue cycles through expert medical coding, comprehensive claims analysis, and innovative technology solutions. With extensive experience in both inpatient and outpatient settings, I excel at developing efficient coding tools that enhance accuracy, ensure compliance, and accelerate reimbursement processes.</p>
+      <p style="color:var(--muted);max-width:120ch">As a <strong>CPC‑certified</strong> healthcare professional, I specialize in optimizing revenue cycles through expert medical coding, comprehensive claims analysis, and innovative technology solutions. With extensive experience in both inpatient and outpatient settings, I excel at developing efficient coding tools that enhance accuracy, ensure compliance, and accelerate reimbursement processes.</p>
     </section>
 
     <!-- ===== Projects ===== -->
@@ -335,7 +421,6 @@
           </ul>
           <div class="cta" style="margin-top:14px">
             <a class="btn magnet" href="https://medical-coding-tool.vercel.app/" target="_blank" style="background:linear-gradient(135deg, var(--gold), rgba(234,196,107,.18)); color:#222;"><span class="hover"></span><span class="hover"></span>Open Live Demo</a>
-            <a class="btn magnet" href="#projects" style="background:linear-gradient(135deg, var(--gold), rgba(234,196,107,.18)); color:#222;"><span class="hover"></span>See Details Below</a>
           </div>
         </div>
         <div style="width:300px; max-width:40%;">
@@ -346,10 +431,9 @@
         </div>
       </div>
 
-      <!-- Other projects grid -->
-      <div class="grid">
-        <!-- Project 1: Medical Coding Tool (compact flip card) -->
-        <article class="card flip">
+      <!-- Centered card flip -->
+      <div style="display:flex; justify-content:center; margin-top:32px;">
+        <article class="card flip" style="max-width:480px; width:100%;">
           <div class="flip-inner">
             <div class="face front" style="display:grid;align-content:space-between">
               <div>
@@ -363,10 +447,10 @@
                 <span class="chip">NCCI Checks</span>
                 <span class="chip">Claims Editing</span>
                 <span class="chip">LCD/NCD Coverage Rules</span>
-                <span class="badge">Claims Editing</span>
                 <span class="badge">Revenue Integrity Workflow</span>
               </div>
             </div>
+            <div class="face back" style="display:grid;align-content:start;gap:24px"></div>
             <div class="face back" style="display:grid;align-content:start;gap:24px">
               <a href="https://medical-coding-tool.vercel.app/" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:500;margin-bottom:8px">Open Medical Coding Tool Live Demo →</a>
               <ul style="list-style:none;padding:0;margin:0;color:var(--muted);font-size:0.95rem;line-height:1.6">
@@ -395,6 +479,15 @@
         <span class="chip">Compliance Management</span>
         <span class="chip">Provider Education</span>
         <span class="chip">Denial Prevention</span>
+        <span class="chip">Medicare/Medicaid Billing</span>
+        <span class="chip">Healthcare Compliance</span>
+        <span class="chip">Clinical Documentation Improvement</span>
+        <span class="chip">Denial Resolution</span>
+        <span class="chip">Claims Management</span>
+        <span class="chip">Claims Analysis</span>
+        <span class="chip">Root Cause Analysis</span>
+        <span class="chip">KPI Reporting</span>
+        <span class="chip">Team Collaboration</span>      
       </div>
     </section>
 
@@ -418,9 +511,9 @@
       <h2>Let's Connect</h2>
       <p style="color:var(--muted)">Seeking opportunities to drive revenue cycle excellence through innovative solutions and strategic process optimization. Let's discuss how we can transform healthcare revenue management together.</p>
       <div class="cta">
-        <a class="btn magnet" href="mailto:youremail@example.com" style="background:linear-gradient(135deg, var(--gold), rgba(234,196,107,.18)); color:#222;"><span class="hover"></span><span class="hover"></span>Email Me</a>
-        <a class="btn magnet" href="#" onclick="alert('Replace with your LinkedIn URL')" style="background:linear-gradient(135deg, var(--rose), rgba(247,195,214,.18)); color:#222;"><span class="hover"></span>LinkedIn</a>
-        <a class="btn magnet" href="#" onclick="alert('Replace with your resume link')" style="background:linear-gradient(135deg, var(--violet), rgba(196,147,234,.18)); color:#222;"><span class="hover"></span>Resume</a>
+        <a class="btn magnet" href="mailto:goliamulya28@gmail.com" style="background:linear-gradient(135deg, var(--gold), rgba(234,196,107,.18)); color:#222;"><span class="hover"></span><span class="hover"></span>Email Me</a>
+        <a class="btn magnet" href="https://www.linkedin.com/in/amulyagoli/" style="background:linear-gradient(135deg, var(--rose), rgba(247,195,214,.18)); color:#222;"><span class="hover"></span>LinkedIn</a>
+        <a class="btn magnet" href="Ammu_Medical_Coding_Tool.pdf" style="background:linear-gradient(135deg, var(--violet), rgba(196,147,234,.18)); color:#222;"><span class="hover"></span>Resume</a>
       </div>
     </section>
     </section>
